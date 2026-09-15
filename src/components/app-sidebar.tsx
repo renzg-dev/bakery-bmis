@@ -31,21 +31,21 @@ const menuItems = [
     url: "/",
     icon: LayoutDashboard,
   },
-  {
-    title: "Products",
-    url: "/products",
-    icon: Package,
-  },
-  {
-    title: "Inventory",
-    url: "/inventory",
-    icon: Warehouse,
-  },
-  {
-    title: "Sales",
-    url: "/sales",
-    icon: ShoppingCart,
-  },
+  // {
+  //   title: "Products",
+  //   url: "/products",
+  //   icon: Package,
+  // },
+  // {
+  //   title: "Inventory",
+  //   url: "/inventory",
+  //   icon: Warehouse,
+  // },
+  // {
+  //   title: "Sales",
+  //   url: "/sales",
+  //   icon: ShoppingCart,
+  // },
   {
     title: "Expenses",
     url: "/expenses",

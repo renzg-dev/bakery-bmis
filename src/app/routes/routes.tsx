@@ -9,7 +9,7 @@ import Sales from "@/pages/sales";
 import Settings from "@/pages/settings";
 import NotFound from "@/pages/not-found";
 import Expenses from "@/features/expenses";
-import Suppliers from "@/features/suppliers";
+import Suppliers from "@/pages/SuppliersPage";
 
 export const router = createBrowserRouter([
   {

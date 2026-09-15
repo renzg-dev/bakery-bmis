@@ -7,6 +7,7 @@ import {
   LogOut,
   Banknote,
   FileText,
+  Truck,
 } from "lucide-react";
 
 import { NavLink } from "react-router-dom";
@@ -49,6 +50,11 @@ const menuItems = [
     title: "Expenses",
     url: "/expenses",
     icon: Banknote,
+  },
+  {
+    title: "Suppliers",
+    url: "/suppliers",
+    icon: Truck,
   },
 ];
 

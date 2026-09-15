@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import DashboardLayout from "@/layouts/dashboard-layout";
+import DashboardLayout from "@/app/layouts/dashboard-layout";
 
 import Dashboard from "@/pages/dashboard";
 import Products from "@/pages/products";
@@ -9,6 +9,7 @@ import Sales from "@/pages/sales";
 import Settings from "@/pages/settings";
 import NotFound from "@/pages/not-found";
 import Expenses from "@/features/expenses";
+import Suppliers from "@/features/suppliers";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "/settings",
         element: <Settings />,
+      },
+      {
+        path: "/suppliers",
+        element: <Suppliers />,
       },
 
       { path: "*", element: <NotFound /> },

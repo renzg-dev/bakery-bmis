@@ -8,12 +8,12 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
-import { TrendingUp as IconTrendingUp } from "lucide-react";
+import { TrendingUp as IconTrendingUp, TrendingDown } from "lucide-react";
 
 interface SectionCardsProps {
   title: string;
   value: string | number;
-  trend: string;
+  trend: number;
 }
 
 const SectionCards = ({ title, value, trend }: SectionCardsProps) => {
@@ -26,9 +26,12 @@ const SectionCards = ({ title, value, trend }: SectionCardsProps) => {
             {value}
           </CardTitle>
           <CardAction>
-            <Badge variant="outline">
+            <Badge
+              variant="outline"
+              className={trend >= 1 ? "text-green-800" : "text-red-700"}
+            >
               <IconTrendingUp />
-              {trend}
+              {trend}%
             </Badge>
           </CardAction>
         </CardHeader>

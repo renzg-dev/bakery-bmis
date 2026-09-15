@@ -6,9 +6,9 @@ import Dashboard from "@/pages/dashboard";
 import Products from "@/pages/products";
 import Inventory from "@/pages/inventory";
 import Sales from "@/pages/sales";
-import Expenses from "@/pages/expenses";
 import Settings from "@/pages/settings";
 import NotFound from "@/pages/not-found";
+import Expenses from "@/features/expenses";
 
 export const router = createBrowserRouter([
   {

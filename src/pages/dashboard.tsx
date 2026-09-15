@@ -1,27 +1,17 @@
 import SectionCards from "@/components/section-cards";
+import { stats } from "@/data/dashboard-data";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
-const stats = [
-  {
-    title: "Total Revenue",
-    value: "$4,300",
-    trend: "+8%",
-  },
-  {
-    title: "Total Sales",
-    value: "$12,500",
-    trend: "+5%",
-  },
-  {
-    title: "Total Expenses",
-    value: "$8,200",
-    trend: "-3%",
-  },
-  {
-    title: "Total Customers",
-    value: "1,200",
-    trend: "+10%",
-  },
-];
+import { invoices } from "@/data/dashboard-data";
 
 const dashboard = () => {
   return (
@@ -42,6 +32,37 @@ const dashboard = () => {
             trend={stat.trend}
           />
         ))}
+      </div>
+      <div className="mt-8">
+        <Table>
+          <TableCaption>A list of your recent invoices.</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="w-[100px]">Invoice</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead>Method</TableHead>
+              <TableHead className="text-right">Amount</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {invoices.map((invoice) => (
+              <TableRow key={invoice.invoice}>
+                <TableCell className="font-medium">{invoice.invoice}</TableCell>
+                <TableCell>{invoice.paymentStatus}</TableCell>
+                <TableCell>{invoice.paymentMethod}</TableCell>
+                <TableCell className="text-right">
+                  {invoice.totalAmount}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+          <TableFooter>
+            <TableRow>
+              <TableCell colSpan={3}>Total</TableCell>
+              <TableCell className="text-right">$2,500.00</TableCell>
+            </TableRow>
+          </TableFooter>
+        </Table>
       </div>
     </>
   );

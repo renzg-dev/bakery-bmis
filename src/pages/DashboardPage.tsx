@@ -13,7 +13,7 @@ import {
 
 import { invoices } from "@/data/dashboard-data";
 
-const dashboard = () => {
+const DashboardPage = () => {
   return (
     <>
       <div className="mb-4 flex flex-col gap-2 px-4 @xl/main:px-6">
@@ -68,4 +68,4 @@ const dashboard = () => {
   );
 };
 
-export default dashboard;
+export default DashboardPage;

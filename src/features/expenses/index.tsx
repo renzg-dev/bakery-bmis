@@ -27,6 +27,7 @@ import {
   Table,
   TableBody,
   TableCell,
+  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -273,7 +274,7 @@ const Expenses = () => {
               ))}
             </TableBody>
             {expenses.length > 0 && (
-              <tfoot>
+              <TableFooter>
                 <TableRow>
                   <TableCell colSpan={3} className="font-medium">
                     Total
@@ -282,7 +283,7 @@ const Expenses = () => {
                     {currencyFormatter.format(totalExpenses)}
                   </TableCell>
                 </TableRow>
-              </tfoot>
+              </TableFooter>
             )}
           </Table>
         </CardContent>

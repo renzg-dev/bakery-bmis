@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import DashboardLayout from "@/app/layouts/dashboard-layout";
 
-import Dashboard from "@/pages/dashboard";
+import Dashboard from "@/pages/DashboardPage";
 import Products from "@/pages/products";
 import Inventory from "@/pages/inventory";
 import Sales from "@/pages/sales";

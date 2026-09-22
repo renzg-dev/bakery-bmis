@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import SectionCards from "@/components/section-cards";
 import { stats } from "@/data/dashboard-data";
 import {
@@ -12,11 +13,31 @@ import {
 } from "@/components/ui/table";
 
 import { invoices } from "@/data/dashboard-data";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardAction,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 
 const DashboardPage = () => {
+  type Post = { id: number; title: string; body: string };
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => response.json())
+      .then((json) => setPosts(json));
+  }, []);
+
+  const get10Posts = posts.slice(0, 10);
+
   return (
     <>
-      <div className="mb-4 flex flex-col gap-2 px-4 @xl/main:px-6">
+      <div className="flex flex-col gap-2">
         <h1 className="text-2xl font-bold">Dashboard</h1>
         <p className="text-muted-foreground">
           Welcome to your bakery management system.
@@ -33,7 +54,7 @@ const DashboardPage = () => {
           />
         ))}
       </div>
-      <div className="mt-8">
+      <div>
         <Table>
           <TableCaption>A list of your recent invoices.</TableCaption>
           <TableHeader>
@@ -63,6 +84,19 @@ const DashboardPage = () => {
             </TableRow>
           </TableFooter>
         </Table>
+      </div>
+      <div>
+        <h2 className="mb-2 text-xl font-bold">Recent Posts</h2>
+        <ul className="flex flex-col gap-4">
+          {get10Posts.map((post) => (
+            <Card key={post.id}>
+              <CardHeader>
+                <CardTitle>{post.title}</CardTitle>
+                <CardDescription>{post.body}</CardDescription>
+              </CardHeader>
+            </Card>
+          ))}
+        </ul>
       </div>
     </>
   );

@@ -1,5 +1,4 @@
 import { SupplierForm } from "@/features/suppliers";
-// import { supplierCategories, supplierCodes } from "./data/suppliers-data";
 
 const Suppliers = () => {
   return (

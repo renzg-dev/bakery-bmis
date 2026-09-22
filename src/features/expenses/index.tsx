@@ -37,6 +37,7 @@ import {
   initialExpenses,
   type Expense,
 } from "@/features/expenses/data/expenses-data";
+import { ExpenseDetailsDialog } from "@/features/expenses/components/ExpenseDetailsDialog";
 
 const currencyFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -57,6 +58,9 @@ const Expenses = () => {
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState(emptyFormState);
   const [error, setError] = useState<string | null>(null);
+  const [selectedExpense, setSelectedExpense] = useState<Expense | null>(
+    null
+  );
 
   const resetForm = () => {
     setForm(emptyFormState);
@@ -263,7 +267,11 @@ const Expenses = () => {
                 </TableRow>
               )}
               {expenses.map((expense) => (
-                <TableRow key={expense.id}>
+                <TableRow
+                  key={expense.id}
+                  className="cursor-pointer"
+                  onClick={() => setSelectedExpense(expense)}
+                >
                   <TableCell>{expense.description}</TableCell>
                   <TableCell>{expense.category}</TableCell>
                   <TableCell>{expense.date}</TableCell>
@@ -288,6 +296,16 @@ const Expenses = () => {
           </Table>
         </CardContent>
       </Card>
+
+      {/* View details dialog, opened by clicking a table row */}
+      <ExpenseDetailsDialog
+        expense={selectedExpense}
+        onOpenChange={(nextOpen) => {
+          if (!nextOpen) {
+            setSelectedExpense(null);
+          }
+        }}
+      />
     </div>
   );
 };
